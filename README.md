@@ -1,5 +1,8 @@
 ![Structurizr](docs/images/structurizr-banner.png)
 
+This repository is a fork of the structurizr/dotnet repository of Simon Brown.
+The goal here is to port the structurizr client to the dotnet standard platform.
+
 # Structurizr for .NET
 
 This GitHub repository is a .NET library to create software architecture models that are compatible with [Structurizr](https://structurizr.com), a SaaS to create web-based software architecture diagrams. In summary:
