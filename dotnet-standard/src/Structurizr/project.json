@@ -1,4 +1,6 @@
 {
+    "title": "Structurizr",
+    "description": "Structurizr client for dotnet standard",
     "dependencies": {
         "Microsoft.CodeAnalysis.CSharp": "1.3.2",
         "Microsoft.Extensions.DependencyModel": "1.1.0",
