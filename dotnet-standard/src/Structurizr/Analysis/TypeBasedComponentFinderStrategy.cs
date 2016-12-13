@@ -23,23 +23,12 @@ namespace Structurizr.Analysis
         {
             List<Component> components = new List<Component>();
 
-            //Review this part
             var callingAssemblyReferences = Assembly.GetEntryAssembly().GetReferencedAssemblies();
             var assemblies = callingAssemblyReferences
                                         .Select(a => Assembly.Load(a))
-                                        .Where(a => a.GetTypes().Any(t => InNamespace(t)))
-                                        .Select(a => a.GetReferencedAssemblies())
-                                        .SelectMany(a => a.Select(b => Assembly.Load(b)));
+                                        .Where(a => a.GetTypes().Any(t => InNamespace(t)));
 
             var types = assemblies.SelectMany(a => a.GetTypes());
-
-            if(!types.Any())
-            {
-                types = from a in Referencing.GetReferencingAssemblies(GetType().GetTypeInfo().Assembly.GetName().Name)
-                        from t in a.GetTypes()
-                        where InNamespace(t)
-                        select t;
-            }
 
             foreach (Type type in types)
             {
@@ -92,7 +81,9 @@ namespace Structurizr.Analysis
 
         private bool InNamespace(Type type)
         {
-            return type.Namespace != null && type.Namespace.StartsWith(ComponentFinder.Namespace);
+            var b = type.Namespace != null && type.Namespace.StartsWith(ComponentFinder.Namespace);
+
+            return b;
         }
 
     }

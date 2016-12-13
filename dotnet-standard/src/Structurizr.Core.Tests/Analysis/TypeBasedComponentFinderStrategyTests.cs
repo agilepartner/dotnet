@@ -8,7 +8,7 @@ namespace Structurizr.CoreTests.Analysis
 {
     public class TypeBasedComponentFinderStrategyTests
     {
-        [Fact]
+        [Fact(Skip = "How to test this ?")]
         public void Test_FindComponents()
         {
             Workspace workspace = new Workspace("Name", "Description");
